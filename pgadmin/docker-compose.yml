@@ -14,10 +14,13 @@ services:
     networks:
       - default
       - postgres
+      - timescaledb
 
 networks:
   default:
   postgres:
     external:
       name: postgres_default
-
+  timescaledb:
+    external:
+      name: timescaledb_default

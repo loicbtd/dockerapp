@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mysql:
+    container_name: mariadb
+    restart: always
+    image: mariadb:10
+    expose:
+      - 3306
+    volumes:
+      - ./data:/var/lib/mysql
