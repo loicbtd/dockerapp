@@ -1,0 +1,27 @@
+version: '3'
+services:
+  
+  php_librarymanager:
+    container_name: php_librarymanager
+    build:
+      context: ./build/php
+    volumes:
+      - /webroot/librarymanager:/var/www/html:ro
+      #- ./config/php/ssmtp.conf:/etc/ssmtp/ssmtp.conf:ro
+      #- ./config/php/php-mail.conf:/usr/local/etc/php/conf.d/mail.ini:ro
+    restart: always
+  
+  httpd_librarymanager:
+    container_name: httpd_librarymanager
+    image: httpd:2.4.25
+    ports:
+      - 4000:80
+    volumes:
+      - /webroot/librarymanager:/usr/local/apache2/htdocs/:ro
+      #- ./config:/usr/local/apache2/conf
+      #- ./config/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf #ok
+      #- ./config/httpd/vhosts/:/usr/local/apache2/conf/vhosts #ok
+    depends_on:
+      - php_librarymanager
+    restart: always
+

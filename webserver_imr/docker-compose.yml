@@ -1,15 +1,15 @@
 version: '3'
 services:
-  php-fpm:
-    container_name: php-fm
+  php_imr:
+    container_name: php_imr
     build:
-      context: ./build/php-fpm
+      context: ./build/php
     volumes:
       - /webroot/imr:/var/www/html:ro
 
-  nginx:
-    container_name: nginx
-    build: 
+  nginx_imr:
+    container_name: nginx_imr
+    build:
       context: ./build/nginx
     volumes:
       - /webroot/imr:/var/www/html:ro
@@ -17,7 +17,7 @@ services:
       - ./conf/nginx/sites/:/etc/nginx/sites-available
       - ./conf/nginx/conf.d/:/etc/nginx/conf.d
     ports:
-      - 4343:80
+      - 4301:80
     depends_on:
-      - php-fpm
+      - php_imr
     restart: always
