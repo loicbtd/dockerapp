@@ -5,6 +5,8 @@ services:
     container_name: php_librarymanager
     build:
       context: ./build/php
+    networks:
+      - backend
     volumes:
       - /webroot/librarymanager:/var/www/html:ro
       #- ./config/php/ssmtp.conf:/etc/ssmtp/ssmtp.conf:ro
@@ -13,11 +15,14 @@ services:
   
   httpd_librarymanager:
     container_name: httpd_librarymanager
-    image: httpd:2.4.25
+    build:
+      context: ./build/httpd
     ports:
-      - 4000:80
+      - 4302:80
+    networks:
+      - backend
     volumes:
-      - /webroot/librarymanager:/usr/local/apache2/htdocs/:ro
+      - /webroot/librarymanager:/var/www/html:ro
       #- ./config:/usr/local/apache2/conf
       #- ./config/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf #ok
       #- ./config/httpd/vhosts/:/usr/local/apache2/conf/vhosts #ok
@@ -25,3 +30,5 @@ services:
       - php_librarymanager
     restart: always
 
+networks:
+  backend:
