@@ -2,15 +2,17 @@ version: '3'
 services:
   postgres:
     container_name: postgres
-    build: ./build
+    build:
+      context: ./build
+      dockerfile: Dockerfile
     command: postgres -c port=2232
     environment:
-      - PGDATA=data/postgres
+      - PGDATA=data
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=postgres
     volumes:
-      - ./data:/data/postgres
+      - ./data:/data
     ports:
       - 2232:2232
     restart: always
