@@ -3,8 +3,12 @@ services:
   mysql:
     container_name: mariadb
     restart: always
-    image: mariadb:10
-    expose:
-      - 3306
+    build:
+      context: ./build
+    ports:
+      - 3310:3310
     volumes:
       - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mysql
