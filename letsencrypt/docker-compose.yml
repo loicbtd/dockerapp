@@ -10,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Europe/Paris
       - URL=vpsloic.loicbertrand.net
-      - SUBDOMAINS=webmin,portainer,heimdall,pgadmin,phpmyadmin,librarymanager,imr-app,
+      - SUBDOMAINS=webmin,portainer,heimdall,glances,pgadmin,phpmyadmin,librarymanager,imr-app,
       - VALIDATION=http
       - DHLEVEL=2048 #optional
       - ONLY_SUBDOMAINS=false #optional
