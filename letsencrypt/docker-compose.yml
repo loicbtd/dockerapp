@@ -16,7 +16,7 @@ services:
       - ONLY_SUBDOMAINS=false #optional
       - STAGING=true #optional
     volumes:
-      - ./config:/config
+      - ./data:/config
     network_mode: host
     ports:
       - 443:443
