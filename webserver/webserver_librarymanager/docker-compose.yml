@@ -7,7 +7,7 @@ services:
       context: ../build/httpd
       dockerfile: prod.dockerfile
     ports:
-      - 80:80
+      - 4302:80
     volumes:
       - /webroot/librarymanager:/var/www/html:ro
     restart: always
