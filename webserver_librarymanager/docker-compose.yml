@@ -7,6 +7,7 @@ services:
       context: ./build/php
     networks:
       - backend
+      - mariadb
     volumes:
       - /webroot/librarymanager:/var/www/html:ro
       #- ./config/php/ssmtp.conf:/etc/ssmtp/ssmtp.conf:ro
@@ -21,6 +22,7 @@ services:
       - 4302:80
     networks:
       - backend
+      - mariadb
     volumes:
       - /webroot/librarymanager:/var/www/html:ro
       #- ./config:/usr/local/apache2/conf
@@ -32,3 +34,6 @@ services:
 
 networks:
   backend:
+  mariadb:
+    external:
+      name: mariadb_default
