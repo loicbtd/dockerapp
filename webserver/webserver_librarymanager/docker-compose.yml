@@ -1,0 +1,13 @@
+version: '3'
+services:
+  
+  webserver_librarymanager:
+    container_name: webserver_librarymanager
+    build:
+      context: ../build/httpd
+      dockerfile: prod.dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - /webroot/librarymanager:/var/www/html:ro
+    restart: always
