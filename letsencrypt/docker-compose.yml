@@ -14,7 +14,7 @@ services:
       - VALIDATION=http
       - DHLEVEL=2048 #optional
       - ONLY_SUBDOMAINS=false #optional
-      - STAGING=true #optional
+      - STAGING=false #optional
     volumes:
       - ./data:/config
     network_mode: host
