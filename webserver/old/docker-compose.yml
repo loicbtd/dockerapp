@@ -17,7 +17,7 @@ services:
       - ./conf/nginx/sites/:/etc/nginx/sites-available
       - ./conf/nginx/conf.d/:/etc/nginx/conf.d
     ports:
-      - 4301:80
+      - 4304:80
     depends_on:
       - php_imr
     restart: always

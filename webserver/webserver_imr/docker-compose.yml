@@ -1,13 +1,12 @@
 version: '3'
-services:
-  
+services: 
   webserver_imr:
     container_name: webserver_imr
     build:
-      context: ../build/httpd
-      dockerfile: dev.dockerfile
+      context: ../build/laravel
+      dockerfile: dockerfile
     ports:
       - 4301:80
     volumes:
-      - /webroot/imr:/var/www/html:ro
+      - /webroot/librarymanager:/usr/share/nginx/html:ro
     restart: always

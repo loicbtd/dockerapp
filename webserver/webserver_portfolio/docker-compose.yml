@@ -1,0 +1,13 @@
+version: '3'
+services:
+  
+  webserver_portfolio:
+    container_name: webserver_portfolio
+    build:
+      context: ../build/httpd
+      dockerfile: dev.dockerfile
+    ports:
+      - 4310:80
+    volumes:
+      - /webroot/portfolio:/var/www/html:ro
+    restart: always
