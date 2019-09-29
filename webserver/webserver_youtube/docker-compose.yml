@@ -1,0 +1,13 @@
+version: '3'
+services:
+  
+  webserver_youtube:
+    container_name: webserver_youtube
+    build:
+      context: ../build/httpd
+      dockerfile: dev.dockerfile
+    ports:
+      - 4320:80
+    volumes:
+      - /webroot/youtube:/var/www/html:ro
+    restart: always
