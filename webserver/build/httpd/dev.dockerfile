@@ -29,6 +29,6 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 WORKDIR /var/www/html
 
-EXPOSE 80
+EXPOSE 80 443
 
 CMD apachectl -D FOREGROUND
