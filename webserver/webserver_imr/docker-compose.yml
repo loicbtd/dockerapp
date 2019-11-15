@@ -4,7 +4,7 @@ services:
     container_name: webserver_imr
     build:
       context: ../build/laravel
-      dockerfile: dockerfile
+      dockerfile: dev.dockerfile
     ports:
       - 4301:80
     volumes:

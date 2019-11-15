@@ -1,33 +1,15 @@
-FROM debian:stretch
+FROM debian:jessie
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-	apt-utils \
-	# httpd install
-	apache2 \
-	libapache2-mod-php \
-	# php install
-	php \
-	php-mysql \
-	php-pgsql \
-	&& apt-get clean && rm -rf /var/lib/apt/lists/*
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
 
+RUN mkdir -p /var/log/supervisor
 
-COPY ./php.ini /etc/php/7.0/cli/php.ini
+RUN echo 'ServerName localhost' >> /etc/apache2/apache2.conf
 
-EXPOSE 80 443
+EXPOSE 80
 
-WORKDIR /var/www/html
-
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost || exit 1
-
-CMD apachectl -D FOREGROUND 
-
-
-
-
-
-
-
-
+CMD tail -f /dev/null

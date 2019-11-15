@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rest-api-sunbay-php:
+    container_name: rest-api-sunbay-php
+    image: lavoweb/php-5.6
+    ports:
+      - 4410:80
+    volumes:
+      - /webroot/rest_api_sunbay_php/service-web-php/api:/var/www/html:ro
+    restart: always

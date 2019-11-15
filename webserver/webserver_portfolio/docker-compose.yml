@@ -5,7 +5,7 @@ services:
     container_name: webserver_portfolio
     build:
       context: ../build/httpd
-      dockerfile: dev.dockerfile
+      dockerfile: prod.dockerfile
     ports:
       - 4310:80
     volumes:
