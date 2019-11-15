@@ -1,0 +1,9 @@
+version: '3'
+services: 
+  webservice-sunbay-php:
+    container_name: webservice-sunbay-php
+    ports:
+      - 4410:80
+    volumes:
+      - /webroot/sunbay-php:/usr/share/nginx/html:ro
+    restart: always

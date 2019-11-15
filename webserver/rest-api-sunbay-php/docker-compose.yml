@@ -2,9 +2,12 @@ version: '3'
 services:
   rest-api-sunbay-php:
     container_name: rest-api-sunbay-php
-    image: lavoweb/php-5.6
+    build:
+      context: ../build/httpd
+      dockerfile: dev.dockerfile
     ports:
       - 4410:80
     volumes:
       - /webroot/rest_api_sunbay_php/service-web-php/api:/var/www/html:ro
+      - /webroot/rest_api_sunbay_php/service-web-php/secure:/var/www/secure:ro
     restart: always
