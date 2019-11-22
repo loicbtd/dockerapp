@@ -1,7 +1,9 @@
 version: '3'
 services:
   mongo:
-    image: mongo:4.2.1
+    build:
+      context: ./build
+      dockerfile: Dockerfile
     restart: always
     container_name: mongo
     environment:
