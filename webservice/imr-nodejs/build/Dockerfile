@@ -5,8 +5,7 @@ WORKDIR /usr/src/app
 
 RUN git clone --single-branch --branch calculateur-master  https://github.com/heptagonemedia/projet_imr.git \
     && cd projet_imr/calculateur \
-    && npm install \
-    && npm start
+    && npm install
  
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm","start"]
