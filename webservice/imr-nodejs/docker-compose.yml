@@ -6,6 +6,4 @@ services:
       dockerfile: Dockerfile
     restart: always
     container_name: imr-nodejs
-    ports:
-      - 3000:3000
-    
+    network_mode: host

@@ -7,5 +7,6 @@ RUN git clone --single-branch --branch calculateur-master  https://github.com/he
     && cd projet_imr/calculateur \
     && npm install
  
-EXPOSE 3000
 CMD ["npm","start"]
+
+EXPOSE 3000
